@@ -10,22 +10,25 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .active-tab { border-bottom: 4px solid #1e40af; color: #1e40af; background-color: #eff6ff; }
-        .resource-card:hover { border-color: #bfdbfe; background-color: #f8fafc; }
+        .resource-card:hover { border-color: #bfdbfe; background-color: #f8fafc; transform: translateY(-2px); }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
     <header class="bg-white pt-10 pb-6 text-center shadow-sm">
         <h1 class="text-4xl font-extrabold text-blue-900 tracking-tight">RSP Learning & Training</h1>
-        <p class="text-gray-500 mt-2 text-lg italic">Professional Learning Path</p>
+        <p class="text-gray-500 mt-2 text-lg italic">Professional Cloud & DevOps Learning Path</p>
     </header>
 
     <nav class="bg-white border-b flex justify-center sticky top-0 z-50 overflow-x-auto shadow-sm">
-        <button onclick="showTab('devops')" id="btn-devops" class="py-4 px-6 font-bold text-sm md:text-lg active-tab">DEVOPS</button>
-        <button onclick="showTab('azure')" id="btn-azure" class="py-4 px-6 font-bold text-sm md:text-lg text-gray-500 hover:text-blue-600">AZURE</button>
-        <button onclick="showTab('aws')" id="btn-aws" class="py-4 px-6 font-bold text-sm md:text-lg text-gray-500 hover:text-orange-600">AWS</button>
-        <button onclick="showTab('linkedin')" id="btn-linkedin" class="py-4 px-6 font-bold text-sm md:text-lg text-gray-500 hover:text-blue-700">LINKEDIN</button>
-        <button onclick="showTab('interview')" id="btn-interview" class="py-4 px-6 font-bold text-sm md:text-lg text-gray-500 hover:text-green-600">INTERVIEW Q&A</button>
+        <button onclick="showTab('devops')" id="btn-devops" class="py-4 px-5 font-bold text-sm md:text-base active-tab whitespace-nowrap">DEVOPS</button>
+        <button onclick="showTab('azure')" id="btn-azure" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-blue-600 whitespace-nowrap">AZURE</button>
+        <button onclick="showTab('aws')" id="btn-aws" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-orange-600 whitespace-nowrap">AWS</button>
+        <button onclick="showTab('gcp')" id="btn-gcp" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-green-600 whitespace-nowrap">GCP</button>
+        <button onclick="showTab('linkedin')" id="btn-linkedin" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-blue-700 whitespace-nowrap">LINKEDIN</button>
+        <button onclick="showTab('interview')" id="btn-interview" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-green-700 whitespace-nowrap">INTERVIEW Q&A</button>
     </nav>
 
     <main class="max-w-5xl mx-auto p-6">
@@ -60,44 +63,63 @@
             </div>
         </div>
 
-        <div id="azure" class="tab-content">
+        <div id="azure" class="tab-content animate-fade-in">
             <h2 class="text-2xl font-bold text-blue-800 mb-6 border-l-4 border-blue-500 pl-4">Microsoft Azure & ADO</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-md border text-center">
-                <i class="fab fa-microsoft text-6xl text-blue-600 mb-4"></i>
-                <h3 class="text-2xl font-bold mb-4">Azure Training</h3>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition">Watch Playlist</a>
+            <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
+                <i class="fab fa-microsoft text-7xl text-blue-600 mb-6"></i>
+                <h3 class="text-3xl font-bold mb-4">Azure DevOps Training</h3>
+                <p class="text-gray-500 mb-8 max-w-md mx-auto">Master Azure Cloud and Boards/Pipelines with this full curriculum.</p>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg">Watch Azure Playlist</a>
             </div>
         </div>
 
-        <div id="aws" class="tab-content">
+        <div id="aws" class="tab-content animate-fade-in">
             <h2 class="text-2xl font-bold text-orange-700 mb-6 border-l-4 border-orange-500 pl-4">Amazon Web Services</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-md border text-center">
-                <i class="fab fa-aws text-6xl text-orange-500 mb-4"></i>
-                <h3 class="text-2xl font-bold mb-4">AWS Solution Architect</h3>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="inline-block bg-orange-500 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition">Watch Playlist</a>
+            <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
+                <i class="fab fa-aws text-7xl text-orange-500 mb-6"></i>
+                <h3 class="text-3xl font-bold mb-4">AWS Solution Architect</h3>
+                <p class="text-gray-500 mb-8 max-w-md mx-auto">Learn AWS core services: EC2, S3, IAM, and Networking.</p>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition shadow-lg">Watch AWS Playlist</a>
             </div>
         </div>
 
-        <div id="linkedin" class="tab-content">
-            <h2 class="text-2xl font-bold text-blue-900 mb-6">LinkedIn Resources</h2>
-            <p class="text-gray-500">Add your profile optimization links here.</p>
+        <div id="gcp" class="tab-content animate-fade-in">
+            <h2 class="text-2xl font-bold text-green-800 mb-6 border-l-4 border-green-500 pl-4">Google Cloud Platform</h2>
+            <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
+                <i class="fab fa-google text-7xl text-green-600 mb-6"></i>
+                <h3 class="text-3xl font-bold mb-4">GCP Professional Training</h3>
+                <p class="text-gray-500 mb-8 max-w-md mx-auto">Complete guide to Google Cloud Associate and Professional levels.</p>
+                <a href="https://www.youtube.com/watch?v=N5rXROueKhw&list=PLdpzxOOAlwvL4VhhpTiIUr-i_djrXGB22" target="_blank" class="inline-block bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-700 transition shadow-lg">Watch GCP Playlist</a>
+            </div>
         </div>
 
-        <div id="interview" class="tab-content">
-            <h2 class="text-2xl font-bold text-green-800 mb-6">Interview Prep</h2>
-            <p class="text-gray-500">Add your PDF question banks here.</p>
+        <div id="linkedin" class="tab-content animate-fade-in">
+            <h2 class="text-2xl font-bold text-blue-900 mb-6">LinkedIn Career Growth</h2>
+            <div class="bg-blue-50 p-8 rounded-xl border border-blue-200 text-center">
+                <p class="text-blue-800 font-medium italic">Content for LinkedIn profile building and networking coming soon...</p>
+            </div>
+        </div>
+
+        <div id="interview" class="tab-content animate-fade-in">
+            <h2 class="text-2xl font-bold text-green-800 mb-6">Interview Q&A Resources</h2>
+            <div class="bg-green-50 p-8 rounded-xl border border-green-200 text-center">
+                <p class="text-green-800 font-medium italic">PDF Question Banks and Technical Mock Interviews coming soon...</p>
+            </div>
         </div>
 
     </main>
 
     <script>
         function showTab(tabId) {
+            // Hide all contents
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            // Reset all buttons
             document.querySelectorAll('nav button').forEach(b => {
                 b.classList.remove('active-tab');
                 b.classList.add('text-gray-500');
             });
 
+            // Show current tab
             document.getElementById(tabId).classList.add('active');
             const activeBtn = document.getElementById('btn-' + tabId);
             activeBtn.classList.add('active-tab');
