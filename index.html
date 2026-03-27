@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSP Learning & Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .active-tab { border-bottom: 4px solid #1e40af; color: #1e40af; background-color: #eff6ff; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-white pt-10 pb-6 text-center shadow-sm">
+        <h1 class="text-4xl font-extrabold text-blue-900 tracking-tight">RSP Learning & Training</h1>
+        <p class="text-gray-500 mt-2 text-lg">Welcome to your professional growth journey</p>
+    </header>
+
+    <nav class="bg-white border-b flex justify-center sticky top-0 z-50">
+        <button onclick="showTab('devops')" id="btn-devops" class="py-4 px-8 font-bold text-lg active-tab transition-all">DEVOPS</button>
+        <button onclick="showTab('aiml')" id="btn-aiml" class="py-4 px-8 font-bold text-lg text-gray-500 hover:text-blue-600 transition-all">AI / ML / GENAI</button>
+        <button onclick="showTab('interview')" id="btn-interview" class="py-4 px-8 font-bold text-lg text-gray-500 hover:text-blue-600 transition-all">INTERVIEW Q&A</button>
+    </nav>
+
+    <main class="max-w-5xl mx-auto p-6">
+        
+        <div id="devops" class="tab-content active animate-fade-in">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-blue-600 pl-3">DevOps Modules</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border hover:shadow-lg transition-shadow">
+                    <span class="text-blue-600 font-bold text-sm uppercase tracking-widest">Module 01</span>
+                    <h3 class="font-bold text-2xl mt-1 text-gray-900">AZURE / ADO</h3>
+                    <p class="text-gray-600 mt-3 text-sm">Azure Cloud Services & Azure DevOps Boards/Pipelines.</p>
+                    <a href="INSERT_YOUR_URL_HERE" class="mt-5 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700">Open Resources</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md border hover:shadow-lg transition-shadow">
+                    <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Module 02</span>
+                    <h3 class="font-bold text-2xl mt-1 text-gray-900">AWS</h3>
+                    <p class="text-gray-600 mt-3 text-sm">Amazon Web Services: EC2, S3, Lambda, and more.</p>
+                    <a href="INSERT_YOUR_URL_HERE" class="mt-5 inline-block bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600">Open Resources</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md border hover:shadow-lg transition-shadow">
+                    <span class="text-green-600 font-bold text-sm uppercase tracking-widest">Module 03</span>
+                    <h3 class="font-bold text-2xl mt-1 text-gray-900">GCP</h3>
+                    <p class="text-gray-600 mt-3 text-sm">Google Cloud Platform & Kubernetes Engine.</p>
+                    <a href="INSERT_YOUR_URL_HERE" class="mt-5 inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-700">Open Resources</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="aiml" class="tab-content text-center py-20">
+            <h2 class="text-3xl font-bold text-gray-800">AI / ML / GenAI Content</h2>
+            <p class="text-gray-500 mt-4 text-lg">Curriculum for AI and Machine Learning coming here...</p>
+        </div>
+
+        <div id="interview" class="tab-content text-center py-20">
+            <h2 class="text-3xl font-bold text-gray-800">Interview Preparation</h2>
+            <p class="text-gray-500 mt-4 text-lg">Daily Question & Answer sets for Tech Interviews.</p>
+        </div>
+
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => {
+                b.classList.remove('active-tab', 'text-blue-900');
+                b.classList.add('text-gray-500');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('text-gray-500');
+        }
+    </script>
+</body>
+</html>
