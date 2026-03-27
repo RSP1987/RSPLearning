@@ -10,7 +10,7 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .active-tab { border-bottom: 4px solid #1e40af; color: #1e40af; background-color: #eff6ff; }
-        .resource-card:hover { border-color: #bfdbfe; background-color: #f8fafc; transform: translateY(-2px); }
+        .resource-card:hover { border-color: #bfdbfe; background-color: #f8fafc; transform: translateY(-2px); transition: all 0.2s; }
         .animate-fade-in { animation: fadeIn 0.3s ease-in; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
@@ -36,27 +36,27 @@
         <div id="devops" class="tab-content active animate-fade-in">
             <h2 class="text-2xl font-bold text-blue-900 mb-6 border-l-4 border-blue-600 pl-4">Core DevOps Tools</h2>
             <div class="grid gap-4">
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
                     <div class="bg-blue-100 p-3 rounded-lg mr-4"><i class="fas fa-infinity text-blue-600"></i></div>
                     <div><h4 class="font-bold text-gray-800">DevOps Full Course</h4><p class="text-xs text-gray-500">Master the CI/CD lifecycle</p></div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
                     <div class="bg-purple-100 p-3 rounded-lg mr-4"><i class="fas fa-cloud-upload-alt text-purple-600"></i></div>
                     <div><h4 class="font-bold text-gray-800">Terraform</h4><p class="text-xs text-gray-500">Infrastructure as Code (IaC)</p></div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKwTyYNJCUwGPvql0TrsPgv" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKwTyYNJCUwGPvql0TrsPgv" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
                     <div class="bg-yellow-100 p-3 rounded-lg mr-4"><i class="fab fa-python text-yellow-600"></i></div>
                     <div><h4 class="font-bold text-gray-800">Python</h4><p class="text-xs text-gray-500">Automation and Scripting</p></div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvJdsW6A0jCz_3VaANuFMLpc" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvJdsW6A0jCz_3VaANuFMLpc" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
                     <div class="bg-blue-50 p-3 rounded-lg mr-4"><i class="fas fa-dharmachakra text-blue-500"></i></div>
                     <div><h4 class="font-bold text-gray-800">Kubernetes</h4><p class="text-xs text-gray-500">Container Orchestration</p></div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLjb0vTD9BXLOwwLD_GWCmC" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLjb0vTD9BXLOwwLD_GWCmC" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
                     <div class="bg-sky-100 p-3 rounded-lg mr-4"><i class="fab fa-docker text-sky-600"></i></div>
                     <div><h4 class="font-bold text-gray-800">Docker</h4><p class="text-xs text-gray-500">Containerization Basics</p></div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
                     <div class="bg-green-100 p-3 rounded-lg mr-4"><i class="fas fa-sync text-green-600"></i></div>
                     <div><h4 class="font-bold text-gray-800">GitOps & Argo CD</h4><p class="text-xs text-gray-500">Modern Deployment Patterns</p></div>
                 </a>
@@ -68,8 +68,7 @@
             <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
                 <i class="fab fa-microsoft text-7xl text-blue-600 mb-6"></i>
                 <h3 class="text-3xl font-bold mb-4">Azure DevOps Training</h3>
-                <p class="text-gray-500 mb-8 max-w-md mx-auto">Master Azure Cloud and Boards/Pipelines with this full curriculum.</p>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg">Watch Azure Playlist</a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 shadow-lg">Watch Azure Playlist</a>
             </div>
         </div>
 
@@ -78,8 +77,7 @@
             <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
                 <i class="fab fa-aws text-7xl text-orange-500 mb-6"></i>
                 <h3 class="text-3xl font-bold mb-4">AWS Solution Architect</h3>
-                <p class="text-gray-500 mb-8 max-w-md mx-auto">Learn AWS core services: EC2, S3, IAM, and Networking.</p>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition shadow-lg">Watch AWS Playlist</a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 shadow-lg">Watch AWS Playlist</a>
             </div>
         </div>
 
@@ -88,38 +86,46 @@
             <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
                 <i class="fab fa-google text-7xl text-green-600 mb-6"></i>
                 <h3 class="text-3xl font-bold mb-4">GCP Professional Training</h3>
-                <p class="text-gray-500 mb-8 max-w-md mx-auto">Complete guide to Google Cloud Associate and Professional levels.</p>
-                <a href="https://www.youtube.com/watch?v=N5rXROueKhw&list=PLdpzxOOAlwvL4VhhpTiIUr-i_djrXGB22" target="_blank" class="inline-block bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-700 transition shadow-lg">Watch GCP Playlist</a>
+                <a href="https://www.youtube.com/watch?v=N5rXROueKhw&list=PLdpzxOOAlwvL4VhhpTiIUr-i_djrXGB22" target="_blank" class="inline-block bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-700 shadow-lg">Watch GCP Playlist</a>
             </div>
         </div>
 
         <div id="linkedin" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-blue-900 mb-6">LinkedIn Career Growth</h2>
-            <div class="bg-blue-50 p-8 rounded-xl border border-blue-200 text-center">
-                <p class="text-blue-800 font-medium italic">Content for LinkedIn profile building and networking coming soon...</p>
+            <h2 class="text-2xl font-bold text-blue-900 mb-6">Connect on LinkedIn</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-md border text-center">
+                <i class="fab fa-linkedin text-6xl text-blue-700 mb-4"></i>
+                <h3 class="text-2xl font-bold">Gunti Rajasekhara Prakash</h3>
+                <p class="text-gray-500 mb-6">Follow for daily Interview Q&A and DevOps updates.</p>
+                <a href="https://www.linkedin.com/in/gunti-rajasekhara-prakash-59673b2a/" target="_blank" class="bg-[#0077b5] text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800">Visit My Profile</a>
             </div>
         </div>
 
         <div id="interview" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-green-800 mb-6">Interview Q&A Resources</h2>
-            <div class="bg-green-50 p-8 rounded-xl border border-green-200 text-center">
-                <p class="text-green-800 font-medium italic">PDF Question Banks and Technical Mock Interviews coming soon...</p>
+            <h2 class="text-2xl font-bold text-green-800 mb-6 border-l-4 border-green-500 pl-4">Automated Interview Q&A Feed</h2>
+            <div class="bg-white p-10 rounded-2xl border-2 border-dashed border-gray-200 text-center">
+                <p class="text-gray-400 italic">This area is ready for your LinkedIn Feed Widget (Elfsight/SociableKIT).</p>
             </div>
         </div>
+
+        <section class="mt-12 bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+            <h2 class="text-2xl font-bold text-blue-900 mb-8 text-center">Send Me a Message</h2>
+            <form name="contact" method="POST" data-netlify="true" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                <input type="text" name="name" placeholder="Name" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="email" name="email" placeholder="Email" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500" required>
+                <textarea name="message" placeholder="Your Question..." class="p-3 border rounded-lg md:col-span-2 h-32 outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                <button type="submit" class="md:col-span-2 bg-blue-900 text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition">Submit Form</button>
+            </form>
+        </section>
 
     </main>
 
     <script>
         function showTab(tabId) {
-            // Hide all contents
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            // Reset all buttons
             document.querySelectorAll('nav button').forEach(b => {
                 b.classList.remove('active-tab');
                 b.classList.add('text-gray-500');
             });
-
-            // Show current tab
             document.getElementById(tabId).classList.add('active');
             const activeBtn = document.getElementById('btn-' + tabId);
             activeBtn.classList.add('active-tab');
