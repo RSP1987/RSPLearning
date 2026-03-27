@@ -3,133 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSP Learning & Training</title>
+    <title>RSP Learning - Content Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <style>
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .active-tab { border-bottom: 4px solid #1e40af; color: #1e40af; background-color: #eff6ff; }
-        .resource-card:hover { border-color: #bfdbfe; background-color: #f8fafc; transform: translateY(-2px); transition: all 0.2s; }
-        .animate-fade-in { animation: fadeIn 0.3s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .dark .active-tab { border-bottom: 4px solid #60a5fa; color: #60a5fa; background-color: #1e293b; }
+        /* Markdown rendering styles */
+        #file-viewer-area h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; color: #1e40af; }
+        #file-viewer-area h2 { font-size: 1.4rem; font-weight: 700; margin-top: 1.5rem; color: #1e3a8a; }
+        #file-viewer-area p { margin-bottom: 1rem; line-height: 1.7; }
+        #file-viewer-area code { background: #f1f5f9; padding: 2px 5px; border-radius: 4px; font-family: monospace; color: #be185d; }
+        .dark #file-viewer-area code { background: #334155; color: #fda4af; }
+        #file-viewer-area pre { background: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1.5rem; }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-900">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
 
-    <header class="bg-white pt-10 pb-6 text-center shadow-sm">
-        <h1 class="text-4xl font-extrabold text-blue-900 tracking-tight">RSP Learning & Training</h1>
-        <p class="text-gray-500 mt-2 text-lg italic">Professional Cloud & DevOps Learning Path</p>
+    <header class="bg-white dark:bg-gray-800 pt-8 pb-6 text-center shadow-sm relative">
+        <button onclick="toggleDarkMode()" class="absolute top-5 right-5 p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+            <i id="theme-icon" class="fas fa-moon text-xl"></i>
+        </button>
+        <h1 class="text-3xl font-extrabold text-blue-900 dark:text-blue-400">RSP Learning Portal</h1>
     </header>
 
-    <nav class="bg-white border-b flex justify-center sticky top-0 z-50 overflow-x-auto shadow-sm">
-        <button onclick="showTab('devops')" id="btn-devops" class="py-4 px-5 font-bold text-sm md:text-base active-tab whitespace-nowrap">DEVOPS</button>
-        <button onclick="showTab('azure')" id="btn-azure" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-blue-600 whitespace-nowrap">AZURE</button>
-        <button onclick="showTab('aws')" id="btn-aws" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-orange-600 whitespace-nowrap">AWS</button>
-        <button onclick="showTab('gcp')" id="btn-gcp" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-green-600 whitespace-nowrap">GCP</button>
-        <button onclick="showTab('linkedin')" id="btn-linkedin" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-blue-700 whitespace-nowrap">LINKEDIN</button>
-        <button onclick="showTab('interview')" id="btn-interview" class="py-4 px-5 font-bold text-sm md:text-base text-gray-500 hover:text-green-700 whitespace-nowrap">INTERVIEW Q&A</button>
+    <nav class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 flex justify-center sticky top-0 z-50 shadow-sm">
+        <button onclick="showTab('devops')" id="btn-devops" class="py-4 px-6 font-bold active-tab">COURSES</button>
+        <button onclick="showTab('interview')" id="btn-interview" class="py-4 px-6 font-bold text-gray-500 dark:text-gray-400">INTERVIEW Q&A</button>
     </nav>
 
     <main class="max-w-5xl mx-auto p-6">
         
-        <div id="devops" class="tab-content active animate-fade-in">
-            <h2 class="text-2xl font-bold text-blue-900 mb-6 border-l-4 border-blue-600 pl-4">Core DevOps Tools</h2>
-            <div class="grid gap-4">
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
-                    <div class="bg-blue-100 p-3 rounded-lg mr-4"><i class="fas fa-infinity text-blue-600"></i></div>
-                    <div><h4 class="font-bold text-gray-800">DevOps Full Course</h4><p class="text-xs text-gray-500">Master the CI/CD lifecycle</p></div>
-                </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
-                    <div class="bg-purple-100 p-3 rounded-lg mr-4"><i class="fas fa-cloud-upload-alt text-purple-600"></i></div>
-                    <div><h4 class="font-bold text-gray-800">Terraform</h4><p class="text-xs text-gray-500">Infrastructure as Code (IaC)</p></div>
-                </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKwTyYNJCUwGPvql0TrsPgv" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
-                    <div class="bg-yellow-100 p-3 rounded-lg mr-4"><i class="fab fa-python text-yellow-600"></i></div>
-                    <div><h4 class="font-bold text-gray-800">Python</h4><p class="text-xs text-gray-500">Automation and Scripting</p></div>
-                </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvJdsW6A0jCz_3VaANuFMLpc" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
-                    <div class="bg-blue-50 p-3 rounded-lg mr-4"><i class="fas fa-dharmachakra text-blue-500"></i></div>
-                    <div><h4 class="font-bold text-gray-800">Kubernetes</h4><p class="text-xs text-gray-500">Container Orchestration</p></div>
-                </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLjb0vTD9BXLOwwLD_GWCmC" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
-                    <div class="bg-sky-100 p-3 rounded-lg mr-4"><i class="fab fa-docker text-sky-600"></i></div>
-                    <div><h4 class="font-bold text-gray-800">Docker</h4><p class="text-xs text-gray-500">Containerization Basics</p></div>
-                </a>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f" target="_blank" class="resource-card flex items-center p-4 bg-white rounded-xl border shadow-sm">
-                    <div class="bg-green-100 p-3 rounded-lg mr-4"><i class="fas fa-sync text-green-600"></i></div>
-                    <div><h4 class="font-bold text-gray-800">GitOps & Argo CD</h4><p class="text-xs text-gray-500">Modern Deployment Patterns</p></div>
+        <div id="devops" class="tab-content active">
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="https://youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" class="p-6 bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 flex items-center hover:shadow-lg transition">
+                    <i class="fab fa-youtube text-red-600 mr-4 text-3xl"></i>
+                    <span class="font-bold text-lg">DevOps Full Course</span>
                 </a>
             </div>
         </div>
 
-        <div id="azure" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-blue-800 mb-6 border-l-4 border-blue-500 pl-4">Microsoft Azure & ADO</h2>
-            <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
-                <i class="fab fa-microsoft text-7xl text-blue-600 mb-6"></i>
-                <h3 class="text-3xl font-bold mb-4">Azure Training</h3>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 shadow-lg">Watch Azure Playlist</a>
+        <div id="interview" class="tab-content">
+            <div id="list-view">
+                <h2 class="text-2xl font-bold mb-6 border-l-4 border-green-500 pl-4">Study Material</h2>
+                <div id="file-list-container" class="grid gap-4">
+                    <p class="text-gray-400 italic">Scanning GitHub...</p>
+                </div>
+            </div>
+
+            <div id="content-view" class="hidden">
+                <button onclick="backToList()" class="mb-6 text-blue-600 dark:text-blue-400 font-bold hover:underline">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to List
+                </button>
+                <div class="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-2xl shadow-xl border dark:border-gray-700">
+                    <div id="file-viewer-area"></div>
+                </div>
             </div>
         </div>
-
-        <div id="aws" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-orange-700 mb-6 border-l-4 border-orange-500 pl-4">Amazon Web Services</h2>
-            <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
-                <i class="fab fa-aws text-7xl text-orange-500 mb-6"></i>
-                <h3 class="text-3xl font-bold mb-4">AWS Training</h3>
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 shadow-lg">Watch AWS Playlist</a>
-            </div>
-        </div>
-
-        <div id="gcp" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-green-800 mb-6 border-l-4 border-green-500 pl-4">Google Cloud Platform</h2>
-            <div class="bg-white p-12 rounded-2xl shadow-md border text-center">
-                <i class="fab fa-google text-7xl text-green-600 mb-6"></i>
-                <h3 class="text-3xl font-bold mb-4">GCP Professional Training</h3>
-                <a href="https://www.youtube.com/watch?v=N5rXROueKhw&list=PLdpzxOOAlwvL4VhhpTiIUr-i_djrXGB22" target="_blank" class="inline-block bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-700 shadow-lg">Watch GCP Playlist</a>
-            </div>
-        </div>
-
-        <div id="linkedin" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-blue-900 mb-6">Connect on LinkedIn</h2>
-            <div class="bg-white p-8 rounded-2xl shadow-md border text-center">
-                <i class="fab fa-linkedin text-6xl text-blue-700 mb-4"></i>
-                <h3 class="text-2xl font-bold">Gunti Rajasekhara Prakash</h3>
-                <p class="text-gray-500 mb-6">Follow for daily Interview Q&A and DevOps updates.</p>
-                <a href="https://www.linkedin.com/in/gunti-rajasekhara-prakash-59673b2a/" target="_blank" class="bg-[#0077b5] text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800">Visit My Profile</a>
-            </div>
-        </div>
-
-        <div id="interview" class="tab-content animate-fade-in">
-            <h2 class="text-2xl font-bold text-green-800 mb-6 border-l-4 border-green-500 pl-4">Automated Interview Q&A Feed</h2>
-            <div class="bg-white p-10 rounded-2xl border-2 border-dashed border-gray-200 text-center">
-                <p class="text-gray-400 italic">This area is ready for your LinkedIn Feed Widget (Elfsight/SociableKIT).</p>
-            </div>
-        </div>
-
-        <section class="mt-12 bg-white p-8 rounded-2xl shadow-md border border-gray-100">
-            <h2 class="text-2xl font-bold text-blue-900 mb-8 text-center">Send Me a Message</h2>
-            <form name="contact" method="POST" data-netlify="true" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <input type="text" name="name" placeholder="Name" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500" required>
-                <input type="email" name="email" placeholder="Email" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500" required>
-                <textarea name="message" placeholder="Your Question..." class="p-3 border rounded-lg md:col-span-2 h-32 outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
-                <button type="submit" class="md:col-span-2 bg-blue-900 text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition">Submit Form</button>
-            </form>
-        </section>
-
     </main>
 
     <script>
+        const API_URL = 'https://api.github.com/repos/RSP1987/RSPLearning/contents/devops-training-material-main/kubernetes';
+
         function showTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('nav button').forEach(b => {
                 b.classList.remove('active-tab');
-                b.classList.add('text-gray-500');
+                b.classList.add('text-gray-500', 'dark:text-gray-400');
             });
             document.getElementById(tabId).classList.add('active');
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.add('active-tab');
-            activeBtn.classList.remove('text-gray-500');
+            document.getElementById('btn-' + tabId).classList.add('active-tab');
+            if(tabId === 'interview') fetchFileList();
+        }
+
+        async function fetchFileList() {
+            const container = document.getElementById('file-list-container');
+            try {
+                const response = await fetch(API_URL);
+                const files = await response.json();
+                container.innerHTML = "";
+                
+                files.forEach(file => {
+                    if (file.name.match(/\.(md|pdf|txt)$/i)) {
+                        const isPdf = file.name.endsWith('.pdf');
+                        const card = document.createElement('div');
+                        card.className = "p-4 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl flex justify-between items-center hover:border-blue-500 cursor-pointer transition";
+                        
+                        // If it's MD/TXT, we view it in the app. If PDF, we open link.
+                        const action = isPdf ? `window.open('${file.download_url}')` : `viewFileContent('${file.download_url}', '${file.name}')`;
+
+                        card.innerHTML = `
+                            <div class="flex items-center" onclick="${action}">
+                                <i class="fas ${isPdf ? 'fa-file-pdf text-red-500' : 'fa-file-alt text-blue-500'} text-xl mr-4"></i>
+                                <span class="font-bold">${file.name}</span>
+                            </div>
+                            <span class="text-xs text-gray-400 font-mono">${isPdf ? 'PDF' : 'DOC'}</span>
+                        `;
+                        container.appendChild(card);
+                    }
+                });
+            } catch (e) { container.innerHTML = "Error loading files."; }
+        }
+
+        async function viewFileContent(url, name) {
+            document.getElementById('list-view').classList.add('hidden');
+            document.getElementById('content-view').classList.remove('hidden');
+            const viewer = document.getElementById('file-viewer-area');
+            viewer.innerHTML = '<p class="text-center py-10"><i class="fas fa-spinner fa-spin mr-2"></i> Reading content...</p>';
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                // Render as Markdown if .md, otherwise plain text
+                viewer.innerHTML = name.endsWith('.md') ? marked.parse(text) : `<pre class="whitespace-pre-wrap">${text}</pre>`;
+            } catch (e) { viewer.innerHTML = "Error reading file content."; }
+        }
+
+        function backToList() {
+            document.getElementById('list-view').classList.remove('hidden');
+            document.getElementById('content-view').classList.add('hidden');
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            document.getElementById('theme-icon').className = isDark ? "fas fa-sun text-yellow-400" : "fas fa-moon text-gray-600";
         }
     </script>
 </body>
