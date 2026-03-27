@@ -14,16 +14,19 @@
         .active-tab { border-bottom: 4px solid #1e40af; color: #1e40af; background-color: #eff6ff; }
         .dark .active-tab { border-bottom: 4px solid #60a5fa; color: #60a5fa; background-color: #1e293b; }
         .pdf-frame { width: 100%; height: 75vh; border: none; border-radius: 8px; }
-        #file-viewer-area h1 { font-size: 1.8rem; font-weight: 800; color: #1e40af; margin-bottom: 1rem; }
+        .course-card { transition: all 0.3s ease; border: 1px solid #e5e7eb; }
+        .dark .course-card { border-color: #374151; }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
 
-    <header class="bg-white dark:bg-gray-800 pt-8 pb-6 text-center shadow-sm relative">
+    <header class="bg-white dark:bg-gray-800 pt-8 pb-6 text-center shadow-sm relative border-b dark:border-gray-700">
         <button onclick="toggleDarkMode()" class="absolute top-5 right-5 p-2 rounded-full bg-gray-100 dark:bg-gray-700">
-            <i id="theme-icon" class="fas fa-moon text-xl"></i>
+            <i id="theme-icon" class="fas fa-moon text-xl text-gray-600 dark:text-yellow-400"></i>
         </button>
         <h1 class="text-3xl font-extrabold text-blue-900 dark:text-blue-400">RSP Learning Portal</h1>
+        <p class="text-sm text-gray-500 mt-1">Mastering DevOps & Cloud Engineering</p>
     </header>
 
     <nav class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 flex justify-center sticky top-0 z-50 overflow-x-auto shadow-sm">
@@ -35,20 +38,41 @@
         <button onclick="showTab('interview')" id="btn-interview" class="py-4 px-6 font-bold text-gray-500 dark:text-gray-400">INTERVIEW Q&A</button>
     </nav>
 
-    <main class="max-w-5xl mx-auto p-6">
+    <main class="max-w-6xl mx-auto p-6">
         
         <div id="devops" class="tab-content active">
-            <div class="grid md:grid-cols-2 gap-4">
-                <a href="https://youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" class="p-6 bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 flex items-center hover:shadow-lg transition">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-blue-600 pl-4">DevOps Engineering Roadmap</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="https://youtube.com/playlist?list=PLdpzxOOAlwvIKMhk8WhzN1pYoJ1YU8Csa" target="_blank" class="course-card p-5 bg-white dark:bg-gray-800 rounded-xl flex items-center">
                     <i class="fab fa-youtube text-red-600 mr-4 text-3xl"></i>
-                    <span class="font-bold text-lg">DevOps Full Course</span>
+                    <span class="font-bold">DevOps Full Course</span>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvI04v3v_S_X6U_Gis5N6-jG" target="_blank" class="course-card p-5 bg-white dark:bg-gray-800 rounded-xl flex items-center">
+                    <i class="fab fa-linux text-gray-700 dark:text-white mr-4 text-3xl"></i>
+                    <span class="font-bold">Linux for DevOps</span>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNo-tS_0pY5T_v0X8K32I4" target="_blank" class="course-card p-5 bg-white dark:bg-gray-800 rounded-xl flex items-center">
+                    <i class="fas fa-terminal text-green-600 mr-4 text-3xl"></i>
+                    <span class="font-bold">Shell Scripting Guide</span>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvK_S_6_44X2O-t-82fO97mY" target="_blank" class="course-card p-5 bg-white dark:bg-gray-800 rounded-xl flex items-center">
+                    <i class="fab fa-github text-purple-600 mr-4 text-3xl"></i>
+                    <span class="font-bold">Git & GitHub Mastery</span>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvJ0P8V_tTIdkX6Ssh_O0B_O" target="_blank" class="course-card p-5 bg-white dark:bg-gray-800 rounded-xl flex items-center">
+                    <i class="fab fa-docker text-blue-500 mr-4 text-3xl"></i>
+                    <span class="font-bold">Docker Containers</span>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvJ0P8V_tTIdkX6Ssh_O0B_O" target="_blank" class="course-card p-5 bg-white dark:bg-gray-800 rounded-xl flex items-center">
+                    <i class="fas fa-dharmachakra text-blue-400 mr-4 text-3xl"></i>
+                    <span class="font-bold">Kubernetes (K8s)</span>
                 </a>
             </div>
         </div>
 
         <div id="azure" class="tab-content">
             <div class="grid md:grid-cols-2 gap-4">
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="p-6 bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 flex items-center hover:shadow-lg transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvIcxgCUyBHVOcWs0Krjx9xR" target="_blank" class="course-card p-6 bg-white dark:bg-gray-800 rounded-xl flex items-center">
                     <i class="fab fa-microsoft text-blue-500 mr-4 text-3xl"></i>
                     <span class="font-bold text-lg">Azure DevOps Course</span>
                 </a>
@@ -57,7 +81,7 @@
 
         <div id="aws" class="tab-content">
             <div class="grid md:grid-cols-2 gap-4">
-                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="p-6 bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 flex items-center hover:shadow-lg transition">
+                <a href="https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze" target="_blank" class="course-card p-6 bg-white dark:bg-gray-800 rounded-xl flex items-center">
                     <i class="fab fa-aws text-orange-500 mr-4 text-3xl"></i>
                     <span class="font-bold text-lg">AWS Solutions Architect</span>
                 </a>
@@ -66,7 +90,7 @@
 
         <div id="gcp" class="tab-content">
             <div class="grid md:grid-cols-2 gap-4">
-                <a href="https://www.youtube.com/watch?v=N5rXROueKhw&list=PLdpzxOOAlwvL4VhhpTiIUr-i_djrXGB22" target="_blank" class="p-6 bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 flex items-center hover:shadow-lg transition">
+                <a href="https://www.youtube.com/watch?v=N5rXROueKhw&list=PLdpzxOOAlwvL4VhhpTiIUr-i_djrXGB22" target="_blank" class="course-card p-6 bg-white dark:bg-gray-800 rounded-xl flex items-center">
                     <i class="fab fa-google text-green-500 mr-4 text-3xl"></i>
                     <span class="font-bold text-lg">GCP Professional Engineer</span>
                 </a>
@@ -76,22 +100,20 @@
         <div id="projects" class="tab-content">
             <div class="grid md:grid-cols-2 gap-4">
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700">
-                    <h4 class="font-bold text-lg mb-2"><i class="fas fa-tasks text-purple-500 mr-2"></i> Real-time Projects</h4>
-                    <p class="text-sm text-gray-500">Coming soon: End-to-end CI/CD pipelines & Kubernetes deployments.</p>
+                    <h4 class="font-bold text-lg mb-2 text-purple-600">Real-time Projects</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Practical hands-on projects involving Terraform, Ansible, and Jenkins pipelines.</p>
                 </div>
             </div>
         </div>
 
         <div id="interview" class="tab-content">
             <div id="list-view">
-                <h2 class="text-2xl font-bold mb-6 border-l-4 border-green-500 pl-4">Read-Only Materials</h2>
-                <div id="file-list-container" class="grid gap-4">
-                    <p class="text-gray-400 italic">Connecting to GitHub...</p>
-                </div>
+                <h2 class="text-2xl font-bold mb-6 border-l-4 border-green-500 pl-4">Syncing GitHub Documents...</h2>
+                <div id="file-list-container" class="grid gap-3"></div>
             </div>
             <div id="content-view" class="hidden">
                 <button onclick="backToList()" class="mb-6 text-blue-600 font-bold hover:underline"><i class="fas fa-arrow-left mr-2"></i> Back to List</button>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border dark:border-gray-700" id="file-viewer-area"></div>
+                <div class="bg-white dark:bg-gray-800 p-4 md:p-8 rounded-2xl shadow-xl border dark:border-gray-700" id="file-viewer-area"></div>
             </div>
         </div>
     </main>
@@ -112,16 +134,17 @@
 
         async function fetchFileList() {
             const container = document.getElementById('file-list-container');
+            container.innerHTML = "Loading...";
             try {
                 const response = await fetch(API_URL);
                 const files = await response.json();
                 container.innerHTML = "";
                 files.forEach(file => {
                     if (file.name.match(/\.(md|pdf|txt)$/i)) {
-                        const isPdf = file.name.endsWith('.pdf');
                         const card = document.createElement('div');
-                        card.className = "p-4 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl flex items-center hover:border-blue-500 cursor-pointer transition shadow-sm";
+                        card.className = "p-4 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl flex items-center hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer transition shadow-sm";
                         card.onclick = () => viewFileContent(file.download_url, file.name);
+                        const isPdf = file.name.endsWith('.pdf');
                         card.innerHTML = `<i class="fas ${isPdf ? 'fa-file-pdf text-red-500' : 'fa-file-alt text-blue-500'} text-xl mr-4"></i><span class="font-bold">${file.name}</span>`;
                         container.appendChild(card);
                     }
@@ -134,7 +157,6 @@
             document.getElementById('content-view').classList.remove('hidden');
             const viewer = document.getElementById('file-viewer-area');
             if (name.endsWith('.pdf')) {
-                // PDF Viewer (Read-only iframe)
                 viewer.innerHTML = `<iframe src="${url}#toolbar=0" class="pdf-frame"></iframe>`;
             } else {
                 const response = await fetch(url);
